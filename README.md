@@ -130,7 +130,55 @@ pip install youtube-download-cli
 ## Development installation
 
 ```bash
-git clone <repository-url>
-cd youtube-download-cli
+git clone https://github.com/motaweronline/youtube-dw-cli.git
+cd youtube-dw-cli
 pip install --editable .
 ```
+
+## Windows
+
+Use the `py` launcher, which is installed with Python and always resolves even when `pip` itself isn't on your `PATH`:
+
+```batch
+git clone https://github.com/motaweronline/youtube-dw-cli.git
+cd youtube-dw-cli
+py -m pip install --editable .
+```
+
+### 'pip' is not recognized as an internal or external command
+
+`pip.exe` lives in Python's `Scripts` folder, which is only added to `PATH` when the "Add python.exe to PATH" box is ticked during installation. Rather than fixing `PATH`, invoke pip through Python itself:
+
+```batch
+py -m pip install --editable .
+```
+
+If `py` isn't recognized either, Python is not installed or not on `PATH`. Install it and open a **new** terminal afterwards, since `PATH` changes don't reach terminals that are already open:
+
+```batch
+winget install Python.Python.3.12
+```
+
+### 'youtube-download-cli' is not recognized
+
+The command is installed into Python's `Scripts` folder, which has the same `PATH` problem as above. Run it as a module instead:
+
+```batch
+py -m youtube_download_cli.command_line Fd_3EkGr0-4 mp4
+```
+
+Or add the folder to your `PATH`, printed by:
+
+```batch
+py -c "import sysconfig; print(sysconfig.get_path('scripts'))"
+```
+
+### ffmpeg on Windows
+
+ffmpeg is not bundled with Windows and must be installed separately, again followed by a new terminal:
+
+```batch
+winget install Gyan.FFmpeg
+```
+
+Check that it resolves with `ffmpeg -version`. Without it MP3 downloads are refused and MP4 downloads fall back to a lower quality single-file stream.
