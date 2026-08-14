@@ -1,0 +1,60 @@
+# Virtual environments
+path/
+venv/
+.venv/
+env/
+ENV/
+
+# Byte-compiled / cached files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Packaging / build output
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+pip-wheel-metadata/
+
+# Test / coverage artifacts
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# Downloaded media, this is a downloader after all
+*.mp3
+*.mp4
+*.m4a
+*.webm
+*.mkv
+*.part
+*.ytdl
+
+# Cookie exports, these contain live session credentials
+cookies.txt
+*.cookies
+
+# Editors and IDEs
+.idea/
+.vscode/
+*.iml
+*.swp
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+*.log
